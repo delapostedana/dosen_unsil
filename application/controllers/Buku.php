@@ -47,7 +47,6 @@ class Buku extends CI_Controller {
 				'isbn'           	=> $this->input->post('isbn'),
 				'penerbit'        	=> $this->input->post('penerbit'),
 				'tahun_terbit'    	=> $this->input->post('tahun_terbit'),
-				'id_dosen'          => 0
         	);
         $this->m_buku->edit($data, $id);
         $this->session->set_flashdata('notif', 'updated');

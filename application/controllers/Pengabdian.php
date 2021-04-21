@@ -49,7 +49,6 @@ class Pengabdian extends CI_Controller {
 				'smester'           => $this->input->post('smester'),
 				'id_matkul'         => $this->input->post('matkul'),
 				'kelas'             => $this->input->post('kelas'),
-				'id_dosen'          => 0
         	);
         $this->m_pengabdian->edit($data, $id);
         $this->session->set_flashdata('notif', 'updated');

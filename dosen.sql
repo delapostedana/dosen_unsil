@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2021 at 10:50 AM
+-- Generation Time: Apr 21, 2021 at 10:12 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.14
 
@@ -146,15 +146,18 @@ CREATE TABLE `pengajuan` (
   `id_user` int(11) DEFAULT NULL,
   `status_pengajuan` varchar(255) DEFAULT NULL,
   `alasan` varchar(255) DEFAULT NULL,
-  `tgl` datetime DEFAULT NULL
+  `tgl_pengajuan` datetime DEFAULT NULL,
+  `tgl_respon` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengajuan`
 --
 
-INSERT INTO `pengajuan` (`id`, `no_pengajuan`, `id_dosen`, `id_user`, `status_pengajuan`, `alasan`, `tgl`) VALUES
-(1, NULL, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `pengajuan` (`id`, `no_pengajuan`, `id_dosen`, `id_user`, `status_pengajuan`, `alasan`, `tgl_pengajuan`, `tgl_respon`) VALUES
+(7, 'PBD0001', 1, 2, 'Reject', 'test\r\n', '2021-04-21 09:03:48', '2021-04-21 02:40:03'),
+(8, 'PBD0002', 1, 2, 'Proses', '', '2021-04-21 09:22:21', '2021-04-21 02:54:06'),
+(9, 'PBD0003', 1, 2, 'Approved', '', '2021-04-21 09:22:31', '2021-04-21 02:40:27');
 
 -- --------------------------------------------------------
 
@@ -235,7 +238,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `id_role`, `foto`, `nip`, `nidn`, `id_scopus`, `program_studi`, `jk`, `jabatan`, `pendidikan_tertinggi`, `status_ikatan_kerja`, `status_aktivitas`) VALUES
 (1, 'Dana dela poste', 'admin', '12345', 1, '', '1', '2', '0', 'Teknik Informatika', 'Laki-laki', 'Sekretaris', 'D2', 'Dosen Tetap', 'Aktif'),
-(2, 'Bapak Dosen Saya', 'dosen', 'dosen', 3, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(2, 'Bapak Dosen Saya', 'dosen', 'dosen', 3, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'Jajang', 'jajang', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -256,11 +260,51 @@ CREATE TABLE `v_matkul_pengabdian` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `v_pengajuan`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_pengajuan` (
+`id` int(11)
+,`no_pengajuan` varchar(255)
+,`id_dosen` int(11)
+,`id_user` int(11)
+,`status_pengajuan` varchar(255)
+,`alasan` varchar(255)
+,`tgl_pengajuan` datetime
+,`tgl_respon` datetime
+,`nama_user` varchar(255)
+,`username` varchar(255)
+,`password` varchar(255)
+,`id_role` int(11)
+,`foto` varchar(255)
+,`nip` varchar(255)
+,`nidn` varchar(255)
+,`id_scopus` varchar(255)
+,`program_studi` varchar(255)
+,`jk` varchar(255)
+,`jabatan` varchar(255)
+,`pendidikan_tertinggi` varchar(255)
+,`status_ikatan_kerja` varchar(255)
+,`status_aktivitas` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `v_matkul_pengabdian`
 --
 DROP TABLE IF EXISTS `v_matkul_pengabdian`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_matkul_pengabdian`  AS SELECT `matkul`.`id_matkul` AS `id_matkul`, `matkul`.`nama_matkul` AS `nama_matkul`, `pengabdian`.`id_pengab` AS `id_pengab`, `pengabdian`.`smester` AS `smester`, `pengabdian`.`kelas` AS `kelas`, `pengabdian`.`perguruan_tinggi` AS `perguruan_tinggi`, `pengabdian`.`id_dosen` AS `id_dosen` FROM (`matkul` join `pengabdian` on(`matkul`.`id_matkul` = `pengabdian`.`id_matkul`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_pengajuan`
+--
+DROP TABLE IF EXISTS `v_pengajuan`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_pengajuan`  AS SELECT `pengajuan`.`id` AS `id`, `pengajuan`.`no_pengajuan` AS `no_pengajuan`, `pengajuan`.`id_dosen` AS `id_dosen`, `pengajuan`.`id_user` AS `id_user`, `pengajuan`.`status_pengajuan` AS `status_pengajuan`, `pengajuan`.`alasan` AS `alasan`, `pengajuan`.`tgl_pengajuan` AS `tgl_pengajuan`, `pengajuan`.`tgl_respon` AS `tgl_respon`, `user`.`nama_user` AS `nama_user`, `user`.`username` AS `username`, `user`.`password` AS `password`, `user`.`id_role` AS `id_role`, `user`.`foto` AS `foto`, `user`.`nip` AS `nip`, `user`.`nidn` AS `nidn`, `user`.`id_scopus` AS `id_scopus`, `user`.`program_studi` AS `program_studi`, `user`.`jk` AS `jk`, `user`.`jabatan` AS `jabatan`, `user`.`pendidikan_tertinggi` AS `pendidikan_tertinggi`, `user`.`status_ikatan_kerja` AS `status_ikatan_kerja`, `user`.`status_aktivitas` AS `status_aktivitas` FROM (`pengajuan` join `user` on(`pengajuan`.`id_dosen` = `user`.`id_user`)) ;
 
 --
 -- Indexes for dumped tables
@@ -359,7 +403,7 @@ ALTER TABLE `pengabdian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `publikasi`
@@ -377,7 +421,7 @@ ALTER TABLE `riwayat_pendidikan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

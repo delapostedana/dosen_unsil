@@ -207,16 +207,16 @@
 					    </table>
                     </div>
 				</div>
-				<form action="pengajuan" method="post">
+				<form action="pengajuan/post" method="post">
 					<input type="hidden" name="id" id="id" value="<?= $user['id_user'] ?>"> 
-					<button class="btn btn-primary pull-right" <?php
-					foreach ($cek as $key => $data)
-					{
-						if($data->count_dosen > 0)
+					<button type="submit" class="btn btn-primary pull-right" name="submit" id="submit" <?php
+					// foreach ($cek as $key => $data)
+					// {
+						if($cek['nip'] == null)
 						{
 							echo "disabled";
 						}
-					}
+					// }
 				 	?> >Kirim Biodata</button>
 				</form>
              </div>

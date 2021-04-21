@@ -333,6 +333,20 @@
 			'success'
 			)
 		}
+		else if(flash=='approved') {
+			Swal.fire(
+			'Approved',
+			'Data berhasil di approve!',
+			'success'
+			)
+		}
+		else if(flash=='reject') {
+			Swal.fire(
+			'Reject!',
+			'Data berhasil di reject!',
+			'error'
+			)
+		}
 		else if(flash=='deleted') {
 			Swal.fire(
 			'Deleted',

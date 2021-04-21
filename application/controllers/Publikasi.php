@@ -47,7 +47,6 @@ class Publikasi extends CI_Controller {
 				'no_artikel'        => $this->input->post('no_artikel'),
 				'volume'            => $this->input->post('volume'),
 				'tahun'             => $this->input->post('tahun'),
-				'id_dosen'          => 0
         	);
         $this->m_publikasi->edit($data, $id);
         $this->session->set_flashdata('notif', 'updated');

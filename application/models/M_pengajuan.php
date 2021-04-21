@@ -5,43 +5,34 @@ class M_pengajuan extends CI_Model
 
     function cek($id_dosen)
 	{
-        // $param = array('id_dosen'  =>$id_dosen);
-        // $id=$id_dosen;
 		$this->db->select('*, (SELECT COUNT(*) FROM pengajuan WHERE id_dosen = '.$id_dosen.') as count_dosen');
         $this->db->from('pengajuan');
         $query = $this->db->get()->result();
         return $query;
     }
+
+    function cek_nomor()
+	{
+        $query = $this->db->query("SELECT MAX(no_pengajuan) as nomor from pengajuan");
+        $hasil = $query->row();
+        return $hasil->nomor;
+    }
     
-    function post($id_dosen)
+    function post($id_dosen, $no_sekarang)
     {
+        $kode = "PBD";
+        $no_pengajuan = $kode .= sprintf("%04s", $no_sekarang);
         $data=array
         (
-            'judul'         => $this->input->post('judul'),
-            'bidang_ilmu'   => $this->input->post('bidang_ilmu'),
-            'lembaga'       => $this->input->post('lembaga'),
-            'tahun'         => $this->input->post('tahun'),
-            'id_dosen'      => $id_dosen
+            'no_pengajuan'          => $no_pengajuan,
+            'id_dosen'              => $id_dosen,
+            'status_pengajuan'      => "Proses",
+            'tgl_pengajuan'         => date("Y-m-d h:i:s"),
+           
         );
-        $this->db->insert('penelitian', $data);
+        $this->db->insert('pengajuan', $data);
     }
 
-    function edit($data, $id)
-    {
-        $this->db->where('id_penelitian', $id);
-        $this->db->update('penelitian',$data);
-    }
-
-    function get_one($id)
-    {
-        $param = array('id_penelitian'  =>$id);
-        return $this->db->get_where('penelitian',$param);
-    }
-
-    function hapus($id)
-    {
-        $this->db->where('id_penelitian', $id);
-        $this->db->delete('penelitian');
-    }
+    
 
 }
