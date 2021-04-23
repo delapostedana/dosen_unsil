@@ -30,6 +30,18 @@
 						</div>
 						<div class="help-block with-errors"></div>
 						<span class="text-danger ml-1"><?php echo form_error('username'); ?></span>
+					</div>
+					
+					<div class="form-group">
+						<label for="email" class="control-label">Email <span style="color:red"> *</span></label>
+						<div class="input-group">
+							<input type="email" class="form-control" name="email" id="email" data-error="Email harus diisi (contoh: example@gmail.com)" placeholder="Email" value="<?= set_value('email')?>" required />
+							<span class="input-group-addon">
+								<span class="fa fa-cube"></span>
+							</span>
+						</div>
+						<div class="help-block with-errors"></div>
+						<span class="text-danger ml-1"><?php echo form_error('email'); ?></span>
                     </div>
                 
                     <div class="form-group">

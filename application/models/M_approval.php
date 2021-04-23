@@ -5,8 +5,7 @@ class M_approval extends CI_Model
 
     function tampil_data()
 	{
-		// $param = array('status_pengajuan'  = );
-		// return $this->db->get_where('pengajuan',array('status_pengajuan'=>'Proses'))->result();
+        $this->db->order_by('tgl_pengajuan', 'DESC');
 		return $this->db->get('v_pengajuan')->result();
     }
     

@@ -33,6 +33,11 @@ class M_pengajuan extends CI_Model
         $this->db->insert('pengajuan', $data);
     }
 
-    
+    public function get_active() {
+        {
+            $this->db->order_by('nama_user', 'ASC');
+            return $this->db->get_where('v_pengajuan',array('status_pengajuan'=>'Approved'));
+        }
+    }
 
 }

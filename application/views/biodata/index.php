@@ -9,7 +9,7 @@
 				<div class="box-body table-responsive">
                 <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" style="width: 200px; height: 200px" src="<?php echo base_url(); ?>assets/dist/img/avatar5.png" alt="User Image">
+                  <img class="profile-user-img img-fluid img-circle" style="width: 200px; height: 200px" src="<?php echo base_url(); ?>assets/dist/img/<?= $user['foto']; ?>" alt="User Image">
                 </div>
                 <h3 class="profile-username text-center text-bold text-uppercase"><?= $user['nama_user']?></h3>
                 <table class="table table-striped">

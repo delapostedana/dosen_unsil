@@ -16,6 +16,7 @@ class M_user extends CI_Model
         (
             'nama_user'     => $this->input->post('nama_user'),
             'username'      => $this->input->post('username'),
+            'email'         => $this->input->post('email'),
             'password'      => $password,
             'id_role'       => $this->input->post('role'),
         );
@@ -48,6 +49,49 @@ class M_user extends CI_Model
         $this->db->where('password', $post['password']);
         $query = $this->db->get();
         return $query;
+    }
+
+    function regist()
+    {
+        $data=array
+        (
+            'nama_user'     => $this->input->post('nama'),
+            'username'      => $this->input->post('username'),
+            'password'      => $this->input->post('password'),
+            'email'         => $this->input->post('email'),
+            'id_role'       => 3
+        );
+        $this->db->insert('user', $data);
+    }
+
+    // forgot password
+
+    public function getUserInfo($id)
+    {
+        $q = $this->db->get_where('users', array('id_user' => $id), 1);
+        if ($this->db->affected_rows() > 0) {
+            $row = $q->row();
+            return $row;
+        } else {
+            error_log('no user found getUserInfo(' . $id . ')');
+            return false;
+        }
+    }
+
+    public function getUserInfoByEmail($username)
+    {
+        $q = $this->db->get_where('user', array('username' => $username), 1);
+        if ($this->db->affected_rows() > 0) {
+            $row = $q->row();
+            return $row;
+        }
+    }
+
+    public function updatePassword($password, $id)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->update('user', array('password' => $password));
+        return true;
     }
 
 }

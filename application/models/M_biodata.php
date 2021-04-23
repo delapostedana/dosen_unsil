@@ -7,4 +7,8 @@ class M_biodata extends CI_Model
         $param = array('id_user'  =>$id_dosen);
 		return $this->db->get_where('user',$param)->row_array();
     }
+    function select_data_by_id($id_dosen)
+	{
+    
+    }
 }

@@ -76,212 +76,212 @@
 					<h3 class='box-title'>Biodata Dosen</h3>
                 </div>
                 
-				<div class="box-body table-responsive">
+                <div class="box-body table-responsive">
                 <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" style="width: 200px; height: 200px" src="<?php echo base_url(); ?>assets/dist/img/avatar5.png" alt="User Image">
+                  <img class="profile-user-img img-fluid img-circle" style="width: 200px; height: 200px" src="<?php echo base_url(); ?>assets/dist/img/<?= $user['foto'] ?>" alt="User Image">
                 </div>
-                <h3 class="profile-username text-center text-bold text-uppercase">Abdul Jaelani</h3>
-                  <table class="table table-striped">
-                      <tbody>
-                          <tr>
-                              <td class="text-right">NIP Dosen</td>
-                              <td class="text-center"> : </td>
-                              <td>2010140271</td>
-                          </tr>
-                          <tr>
-                              <td class="text-right">NIDN</td>
-                              <td class="text-center"> : </td>
-                              <td>12345678910</td>
-                          </tr>
-                          <tr>
-                              <td class="text-right">ID Scopus</td>
-                              <td class="text-center"> : </td>
-                              <td>57199648757</td>
-                          </tr>
-                          <tr>
-                              <td class="text-right">Program Studi</td>
-                              <td class="text-center"> : </td>
-                              <td>Teknik Informatika</td>
-                          </tr>
-                          <tr>
-                              <td class="text-right">Jenis Kelamin</td>
-                              <td class="text-center"> : </td>
-                              <td>Laki-laki</td>
-                          </tr><tr>
-                              <td class="text-right">Jabatan Fungsional</td>
-                              <td class="text-center"> : </td>
-                              <td>Asisten Ahli</td>
-                          </tr><tr>
-                              <td class="text-right">Pendidikan Tertinggi</td>
-                              <td class="text-center"> : </td>
-                              <td>S2</td>
-                          </tr><tr>
-                              <td class="text-right">Status Ikatan Kerja</td>
-                              <td class="text-center"> : </td>
-                              <td>Dosen Tetap</td>
-                          </tr><tr>
-                              <td class="text-right">Status Aktivitas</td>
-                              <td class="text-center"> : </td>
-                              <td>Aktif</td>
-                          </tr>
-                      </tbody>
-                  </table>
-            
-                <div class="infobox">
-                <ul class="nav nav-tabs">
-                      <li class="active"><a data-toggle="tab" href="#home">Riwayat Pendidikan</a></li>
-                      <li><a data-toggle="tab" href="#menu1">Pengabdian</a></li>
-                      <li><a data-toggle="tab" href="#menu2">Penelitian</a></li>
-                      <li><a data-toggle="tab" href="#menu3">Daftar Publikasi</a></li>
-                      <li><a data-toggle="tab" href="#menu4">Daftar Buku</a></li>
-                      <!-- <li><a data-toggle="tab" href="#menu2">Menu 2</a></li> -->
-                  </ul>
-                  <div class="tab-content">
-                      <div id="home" class="tab-pane fade in active">
-                          <h3>Riwayat Pendidikan</h3>
-                          <table class="table table-bordered table-hover table-striped">
-              <thead class="bg-primary">
-                <tr>
-                  <th class="text-center">No</th>
-                  <th class="text-center">Perguruan Tinggi</th>
-                  <th class="text-center">Gelar Akademik</th>
-                  <th class="text-center">Tahun Ijazah</th>
-                  <th class="text-center">Jenjang</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    <td class="text-center">1 </td>
-                    <td>Universitas Siliwangi </td>
-                    <td>S.Kom </td>
-                    <td>2013 </td>
-                    <td>S1 </td>
-                                  </tr>
-                                  <tr>
-                    <td class="text-center">2 </td>
-                                      <td>STMIK Eresha </td>
-                    <td>M.Kom </td>
-                    <td>2016 </td>
-                    <td>S2 </td>
-                                  </tr>
-              </tbody>
-            </table>
-                      </div>
-                      <div id="menu1" class="tab-pane fade">
-                          <h3>Pengabdian</h3>
-                          <table class="table table-bordered table-hover table-striped">
-              <thead class="bg-primary">
-                <tr>
-                  <th class="text-center">No</th>
-                  <th class="text-center">Smester</th>
-                  <th class="text-center">Kode Mata Kuliah</th>
-                  <th class="text-center">Nama Mata Kuliah</th>
-                  <th class="text-center">Kode Kelas</th>
-                  <th class="text-center">Perguruan Tinggi</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    <td class="text-center">1 </td>
-                    <td>Genap 2015 </td>
-                    <td>TPLC1914 </td>
-                    <td>SISTEM BERKAS </td>
-                    <td>V.520 </td>
-                    <td>Universitas Siliwangi </td>
-                                  </tr>
-                                  <tr>
-                    <td class="text-center">2 </td>
-                                      <td>Genap 2015 </td>
-                    <td>TPLC2914 </td>
-                    <td>TEKHNIK RISET OPERASIONAL </td>
-                    <td>V.420 </td>
-                    <td>Universitas Siliwangi </td>
-                                  </tr>
-                                  <tr>
-                    <td class="text-center">3 </td>
-                                      <td>Genap 2015 </td>
-                    <td>TPLC2914 </td>
-                    <td>TEKHNIK RISET OPERASIONAL </td>
-                                      <td>V.212 </td>
-                    <td>Universitas Siliwangi </td>
-                                  </tr>
-                  </tbody>
+                <h3 class="profile-username text-center text-bold text-uppercase"><?= $user['nama_user']?></h3>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td class="text-right satu">NIP Dosen</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['nip']?></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right satu">NIDN</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['nidn']?></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right satu">ID Scopus</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['id_scopus']?></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right satu">Program Studi</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['program_studi']?></td>
+                        </tr>
+                        <tr>
+                            <td class="text-right satu">Jenis Kelamin</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['jk']?></td>
+                        </tr><tr>
+                            <td class="text-right satu">Jabatan Fungsional</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['jabatan']?></td>
+                        </tr><tr>
+                            <td class="text-right satu">Pendidikan Tertinggi</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['pendidikan_tertinggi']?></td>
+                        </tr><tr>
+                            <td class="text-right satu">Status Ikatan Kerja</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['status_ikatan_kerja']?></td>
+                        </tr><tr>
+                            <td class="text-right satu">Status Aktivitas</td>
+                            <td class="text-center dua"> : </td>
+                            <td class="tiga"><?= $user['status_aktivitas']?></td>
+                        </tr>
+                    </tbody>
                 </table>
-                      </div>
-                      <div id="menu2" class="tab-pane fade">
-                          <h3>Penelitian</h3>
-                          <table class="table table-bordered table-hover table-striped">
-                <thead class="bg-primary">
-                  <tr>
-                    <th class="text-center">No</th>
-                    <th class="text-center">Judul Penelitian</th>
-                    <th class="text-center">Bidang Ilmu</th>
-                    <th class="text-center">Lembaga</th>
-                    <th class="text-center">Tahun</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-center">1 </td>
-                    <td>Integration of Webqual Method to Importance Performance Analysis and Kano Model to Analyze System Quality of E-Government: Case Study LAPOR! </td>
-                    <td>Sistem Informasi </td>
-                    <td>Jurnal Sistem Informasi(Journal of Information System) </td>
-                    <td>2020 </td>
-                                  </tr>
-                  </tbody>
-                </table>
-                      </div>
-                      <div id="menu3" class="tab-pane fade">
-                          <h3>Daftar Publikasi</h3>
-                          <table class="table table-bordered table-hover table-striped">
-                <thead class="bg-primary">
-                  <tr>
-                    <th class="text-center">No</th>
-                    <th class="text-center">Judul</th>
-                    <th class="text-center">Jurnal</th>
-                    <th class="text-center">No Artikel</th>
-                    <th class="text-center">Volume</th>
-                    <th class="text-center">Tahun</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="text-center">1 </td>
-                    <td>Traditional food knowledge of Indonesia: a new high-quality food dataset and automatic recognition system </td>
-                    <td>Journal of Big Data </td>
-                    <td>69 </td>
-                    <td>7 </td>
-                    <td>2020 </td>
-                                  </tr>
-                  </tbody>
-                </table>
-                      </div>
-                      <div id="menu4" class="tab-pane fade">
-                          <h3>Daftar Buku</h3>
-                          <table class="table table-bordered table-hover table-striped">
-              <thead class="bg-primary">
-                <tr>
-                  <th class="text-center">No</th>
-                  <th class="text-center">Judul Buku</th>
-                  <th class="text-center">ISBN</th>
-                  <th class="text-center">Penerbit</th>
-                  <th class="text-center">Tahun Terbit</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    <td class="text-center">1 </td>
-                    <td>Basis Data </td>
-                    <td>978-979-29-6943- 6 </td>
-                    <td>Yayasan Edelweis </td>
-                    <td>2018 </td>
-                                  </tr>
-                  </tbody>
-                </table>
+          
+               <div class="infobox">
+               <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home">Riwayat Pendidikan</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Pengabdian</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Penelitian</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Daftar Publikasi</a></li>
+                    <li><a data-toggle="tab" href="#menu4">Daftar Buku</a></li>
+                    <!-- <li><a data-toggle="tab" href="#menu2">Menu 2</a></li> -->
+                </ul>
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                        <h3>Riwayat Pendidikan</h3>
+                        <table class="table table-bordered table-hover table-striped">
+						<thead class="bg-primary">
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">Perguruan Tinggi</th>
+								<th class="text-center">Gelar Akademik</th>
+								<th class="text-center">Tahun Ijazah</th>
+								<th class="text-center">Jenjang</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php 
+								$no=1;
+								foreach ($pendidikan as $a) { ?>
+                                <tr>
+									<td class="text-center"><?= $no++ ?> </td>
+                                    <td><?= $a->perguruan_tinggi ?></td>
+									<td><?= $a->gelar_akademik ?> </td>
+									<td><?= $a->tahun_ijazah ?> </td>
+									<td><?= $a->jenjang ?> </td>
+								</tr>
+								<?php } ?>
+						</tbody>
+					</table>
                     </div>
-                </div>
+                    <div id="menu1" class="tab-pane fade">
+                        <h3>Pengabdian</h3>
+                        <table class="table table-bordered table-hover table-striped">
+						<thead class="bg-primary">
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">Smester</th>
+								<th class="text-center">Nama Mata Kuliah</th>
+								<th class="text-center">Kelas</th>
+								<th class="text-center">Perguruan Tinggi</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php 
+								$no=1;
+								foreach ($pengabdian as $a) { ?>
+								<tr>
+									<td class="text-center"><?= $no++ ?> </td>
+									<td><?= $a->smester ?> </td>
+									<td><?= $a->nama_matkul ?> </td>
+									<td><?= $a->kelas ?> </td>
+									<td><?= $a->perguruan_tinggi ?> </td>
+                                </tr>
+                                <?php } ?>
+						    </tbody>
+					    </table>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <h3>Penelitian</h3>
+                        <table class="table table-bordered table-hover table-striped">
+							<thead class="bg-primary">
+								<tr>
+									<th class="text-center">No</th>
+									<th class="text-center">Judul Penelitian</th>
+									<th class="text-center">Bidang Ilmu</th>
+									<th class="text-center">Lembaga</th>
+									<th class="text-center">Tahun</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php 
+								$no=1;
+								foreach ($penelitian as $a) { ?>
+								<tr>
+									<td class="text-center"><?= $no++ ?> </td>
+									<td><?= $a->judul ?> </td>
+									<td><?= $a->bidang_ilmu ?> </td>
+									<td><?= $a->lembaga ?> </td>
+									<td><?= $a->tahun ?> </td>
+								</tr>
+							<?php } ?>
+						    </tbody>
+					    </table>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                        <h3>Daftar Publikasi</h3>
+                        <table class="table table-bordered table-hover table-striped">
+							<thead class="bg-primary">
+								<tr>
+									<th class="text-center">No</th>
+									<th class="text-center">Judul</th>
+									<th class="text-center">Jurnal</th>
+									<th class="text-center">No Artikel</th>
+									<th class="text-center">Volume</th>
+									<th class="text-center">Tahun</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php 
+								$no=1;
+								foreach ($publikasi as $a) { ?>
+								<tr>
+									<td class="text-center"><?= $no++ ?> </td>
+									<td><?= $a->judul_pub ?> </td>
+									<td><?= $a->jurnal ?> </td>
+									<td><?= $a->no_artikel ?> </td>
+									<td><?= $a->volume ?> </td>
+									<td><?= $a->tahun ?> </td>
+								</tr>
+							<?php } ?>
+						    </tbody>
+					    </table>
+                    </div>
+                    <div id="menu4" class="tab-pane fade">
+                        <h3>Daftar Buku</h3>
+                        <table class="table table-bordered table-hover table-striped">
+						<thead class="bg-primary">
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">Judul Buku</th>
+								<th class="text-center">ISBN</th>
+								<th class="text-center">Penerbit</th>
+								<th class="text-center">Tahun Terbit</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php 
+								$no=1;
+								foreach ($buku as $a) { ?>
+								<tr>
+								<tr>
+									<td class="text-center"><?= $no++ ?> </td>
+									<td><?= $a->judul_buku ?> </td>
+									<td><?= $a->isbn ?> </td>
+									<td><?= $a->penerbit ?> </td>
+									<td><?= $a->tahun_terbit ?> </td>
+								</tr>
+							<?php } ?>
+						</tbody>
+					    </table>
+                    </div>
+				</div>
+				
              </div>
+                <!-- /.card-body -->
+				</div>
+			</div>
                 <!-- /.card-body -->
 				</div>
 			</div>

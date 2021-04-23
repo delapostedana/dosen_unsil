@@ -84,6 +84,7 @@ class User extends CI_Controller {
 					$data           =   array(
 						'nama_user'  		=> $this->input->post('nama_user'),
 						'username'          => $this->input->post('username'),
+						'email'	          	=> $this->input->post('email'),
 						'id_role'           => $this->input->post('role'),
 					);
 					$this->m_user->edit($data, $id);
@@ -94,6 +95,7 @@ class User extends CI_Controller {
 					$data           =   array(
 						'nama_user'  		=> $this->input->post('nama_user'),
 						'username'          => $this->input->post('username'),
+						'email'	          	=> $this->input->post('email'),
 						'password'    	    => $password,
 						'id_role'           => $this->input->post('role'),
 					);

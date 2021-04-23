@@ -59,7 +59,7 @@
       </div>
     </form>
 
-    <a href="#">Forgot my password</a><br>
+    <a href="<?= base_url() ?>auth/forgot_password">Forgot my password</a><br>
     <a href="<?= base_url() ?>auth/register" class="text-center">Register</a> a new membership
 
   </div>
@@ -82,6 +82,31 @@
 			'Username / Password yang anda masukan SALAH!',
 			'error'
 			)
+    }
+
+		if(flash=='success'){
+			Swal.fire(
+			'Success',
+			'Registrasi berhasil!',
+			'success'
+			)
+    }
+    
+    
+		if(flash=='send'){
+			Swal.fire(
+			'Success',
+			'Silahkan cek email anda!',
+			'success'
+			)
+    }
+    
+    if(flash=='reset'){
+        Swal.fire(
+        'Berhasil',
+        'Password berhasil diubah!',
+        'success'
+        )
     }
 	</script>
 </body>

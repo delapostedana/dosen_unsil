@@ -14,30 +14,34 @@
 								<th class="text-center">No Pengajuan</th>
 								<th class="text-center">Nama Dosen</th>
 								<th class="text-center">Status Pengajuan</th>
-								<th class="text-center">Keterangan</th>
+								<th class="text-center">Alasan Penolakan</th>
 							</tr>
 						</thead>
-						<tbody>
-								<tr>
-									<td class="text-center">1 </td>
-									<td>13-3-2021 </td>
-									<td>PBD-202103131 </td>
-									<td>Ahmad Jaelani </td>
-                                    <td class="text-center">
-                                    <p class="bg-danger">Reject</p>
-                                    </td>
-                                    <td>Biodata harus dilengkapi </td>
-                                </tr>
-                                <tr>
-									<td class="text-center">2 </td>
-									<td>15-3-2021 </td>
-									<td>PBD-202103135 </td>
-                                    <td>Ahmad Jaelani </td>
-                                    <td class="text-center">
-                                    <p class="bg-success">Approved</p>
-                                    </td>
-									<td>Biodata sudah di Approve</td>
-                                </tr>
+						<?php 
+							$no=0;
+							foreach ($record as $a) { ?>
+							<tr>
+								<td class="text-center"><?= ++$no; ?></td>
+								<td><?= $a->tgl_pengajuan ?> </td>
+								<td><?= $a->no_pengajuan ?> </td>
+								<td><?= $a->nama_user ?> </td>
+								<td class="text-center"><p class="bg-<?php 
+									if($a->status_pengajuan == "Proses")
+									{
+										echo "info";
+									} 
+									if($a->status_pengajuan == "Reject")
+									{
+										echo "danger";
+									} 
+									if($a->status_pengajuan == "Approved")
+									{
+										echo "success";
+									}
+									?>"><?= $a->status_pengajuan ?> </p></td>
+								<td><?= $a->alasan ?> </td>
+							</tr>
+						<?php } ?>
 					</table>
 				</div>
 			</div>

@@ -10,14 +10,6 @@ class Pengajuan extends CI_Controller {
         $this->load->model('m_pengajuan');
     }
 
-	public function index()
-	{
-		// $id_dosen=$this->input->post('id');
-		// $data['record'] = $this->m_pengajuan->add($id_dosen);
-		// $this->template->load('template/template', 'pengabdian/index', $data);
-		// $this->load->view('template/datatables');
-	}
-
 	function post()
 	{
 		if (isset($_POST['submit'])) {
@@ -29,11 +21,11 @@ class Pengajuan extends CI_Controller {
             
 			if ($this->db->affected_rows() > 0) {
 				$this->session->set_flashdata('notif', 'success');
-				echo "<script>window.location='" . base_url('laporan') . "';</script>";
+				echo "<script>window.location='" . base_url('laporan/status_pengajuan') . "';</script>";
 			}
 			else{
 				$this->session->set_flashdata('notif', 'error');
-				echo "<script>window.location='" . base_url('laporan') . "';</script>";
+				echo "<script>window.location='" . base_url('laporan/status_pengajuan') . "';</script>";
 			}
 		} 
 	}

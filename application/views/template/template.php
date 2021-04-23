@@ -83,13 +83,13 @@
 						<!-- <?php $foto = $this->session->userdata['foto']; ?> -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="<?php echo base_url(); ?>assets/dist/img/avatar5.png" class="user-image" alt="User Image">
+								<img src="<?php echo base_url(); ?>assets/dist/img/<?= $this->fungsi->user_login()->foto; ?>" class="user-image" alt="User Image">
 								<?= strtoupper($this->fungsi->user_login()->nama_user); ?>
 							</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
 								<li class="user-header">
-									<img src="<?php echo base_url(); ?>assets/dist/img/avatar5.png" class="user-image"  class="img-circle" alt="User Image">
+									<img src="<?php echo base_url(); ?>assets/dist/img/<?= $this->fungsi->user_login()->foto; ?>" class="user-image"  class="img-circle" alt="User Image">
 									<p class="text-bold">
 									<?= strtoupper($this->fungsi->user_login()->nama_user); ?>
 									</p>
@@ -130,7 +130,7 @@
 				<!-- Sidebar user panel -->
 				<div class="user-panel">
 					<div class="pull-left image">
-						<img src="<?php echo base_url(); ?>assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
+						<img src="<?php echo base_url(); ?>assets/dist/img/<?= $this->fungsi->user_login()->foto; ?>" class="img-circle" alt="User Image">
 					</div>
 					<div class="pull-left info">
 						<p> <?php $role = $this->fungsi->user_login()->id_role;
