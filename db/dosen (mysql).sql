@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 10:12 AM
+-- Generation Time: Apr 30, 2021 at 06:26 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.14
 
@@ -62,7 +62,8 @@ CREATE TABLE `fakultas` (
 INSERT INTO `fakultas` (`id_fakul`, `nama_fakul`) VALUES
 (1, 'Teknik Informatika'),
 (2, 'Sistem Informatika'),
-(3, 'Manajemen');
+(3, 'Manajemen'),
+(16, 'Akuntansi');
 
 -- --------------------------------------------------------
 
@@ -155,9 +156,10 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`id`, `no_pengajuan`, `id_dosen`, `id_user`, `status_pengajuan`, `alasan`, `tgl_pengajuan`, `tgl_respon`) VALUES
-(7, 'PBD0001', 1, 2, 'Reject', 'test\r\n', '2021-04-21 09:03:48', '2021-04-21 02:40:03'),
-(8, 'PBD0002', 1, 2, 'Proses', '', '2021-04-21 09:22:21', '2021-04-21 02:54:06'),
-(9, 'PBD0003', 1, 2, 'Approved', '', '2021-04-21 09:22:31', '2021-04-21 02:40:27');
+(7, 'PBD0001', 1, 2, 'Proses', 'test\r\n', '2021-04-21 09:03:48', '2021-04-21 02:40:03'),
+(8, 'PBD0002', 1, 1, 'Approved', '', '2021-04-21 09:22:21', '2021-04-23 10:20:50'),
+(10, 'PBD0003', 4, 1, 'Proses', 'Tidak ada riwayatnya', '2021-04-23 09:57:31', '2021-04-23 09:59:35'),
+(11, 'PBD0004', 4, 1, 'Reject', 'Double data', '2021-04-23 09:58:53', '2021-04-23 09:59:51');
 
 -- --------------------------------------------------------
 
@@ -211,6 +213,39 @@ INSERT INTO `riwayat_pendidikan` (`id_riw_pendidikan`, `perguruan_tinggi`, `gela
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tokens`
+--
+
+CREATE TABLE `tokens` (
+  `id` int(11) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `created` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tokens`
+--
+
+INSERT INTO `tokens` (`id`, `token`, `id_user`, `created`) VALUES
+(1, '80e312d383843d1a223a2199b241ab', 11, '2021-04-22'),
+(2, '461360ccea1ce5b58176dc2863b729', 11, '2021-04-22'),
+(3, '38096faf25459836e549d6297b1632', NULL, '2021-04-22'),
+(4, '210b72b5343ae58697344e23f326a6', 11, '2021-04-22'),
+(5, 'a6052f7bdd37f6bd03a162a9349e1b', 11, '2021-04-22'),
+(6, 'd0f3874cf37f84d18dbac57c78512a', 11, '2021-04-22'),
+(7, '15b1ed81f05319a71cee07c497d237', 11, '2021-04-22'),
+(8, '0f6be6fec4926e900371018068599c', 11, '2021-04-22'),
+(9, 'c3438172e62f469cb6b546e51738ec', 11, '2021-04-22'),
+(10, '6ae7675ed414ff93ae225306b01429', 11, '2021-04-22'),
+(11, 'fmPsUAVz+jMD6MJOagGtXOvIsVwp0OO/kMCbigShisI=', 11, '0000-00-00'),
+(12, 'jcNFXUGgXeYzc1xo0TfMOly2zZe7J4ubzyGhsOR1GzI=', 11, '2021-04-22'),
+(13, 'iGCfyJtJWji9KIoO58+iaei554VRMIr1CNDqwBNbSRs=', 11, '2021-04-23'),
+(14, 'ghJabNqUUGFk3KWFUJenQtu900ceKGwTmcWbWW0GfM4=', 11, '2021-04-23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -229,17 +264,22 @@ CREATE TABLE `user` (
   `jabatan` varchar(255) DEFAULT NULL,
   `pendidikan_tertinggi` varchar(255) DEFAULT NULL,
   `status_ikatan_kerja` varchar(255) DEFAULT NULL,
-  `status_aktivitas` varchar(255) DEFAULT NULL
+  `status_aktivitas` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `id_role`, `foto`, `nip`, `nidn`, `id_scopus`, `program_studi`, `jk`, `jabatan`, `pendidikan_tertinggi`, `status_ikatan_kerja`, `status_aktivitas`) VALUES
-(1, 'Dana dela poste', 'admin', '12345', 1, '', '1', '2', '0', 'Teknik Informatika', 'Laki-laki', 'Sekretaris', 'D2', 'Dosen Tetap', 'Aktif'),
-(2, 'Bapak Dosen Saya', 'dosen', 'dosen', 3, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Jajang', 'jajang', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `id_role`, `foto`, `nip`, `nidn`, `id_scopus`, `program_studi`, `jk`, `jabatan`, `pendidikan_tertinggi`, `status_ikatan_kerja`, `status_aktivitas`, `email`) VALUES
+(1, 'Dana dela poste', 'admin', '12345', 1, '1619163900-adm.png', '1', '2', '0', 'Teknik Informatika', 'Laki-laki', 'Sekretaris', 'D2', 'Dosen Tetap', 'Aktif', '12345@g'),
+(2, 'Bapak Dosen Saya', 'dosen', 'dosen', 3, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
+(4, 'Jajang', 'jajang', '12345', 3, '1619668351-21192554611598811058-128.png', '123456789', '123456789', '123456789', 'Sistem Informatika', 'Laki-laki', 'Sekretaris', 'S2', 'Dosen Tetap', 'Aktif', 'abc@gmail.com'),
+(7, 'Farid Yulianto', 'farids', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
+(9, 'Pipit Riyani', 'pipit', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
+(11, 'Joko Wi', 'jokowi', '12345', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'nirwanasecondary@yahoo.com'),
+(12, 'Bapak Dosen Yang Terhormat', 'ythdosen', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dosen@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -360,6 +400,12 @@ ALTER TABLE `riwayat_pendidikan`
   ADD PRIMARY KEY (`id_riw_pendidikan`);
 
 --
+-- Indexes for table `tokens`
+--
+ALTER TABLE `tokens`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -379,7 +425,7 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id_fakul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_fakul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `matkul`
@@ -403,7 +449,7 @@ ALTER TABLE `pengabdian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `publikasi`
@@ -418,10 +464,16 @@ ALTER TABLE `riwayat_pendidikan`
   MODIFY `id_riw_pendidikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `tokens`
+--
+ALTER TABLE `tokens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

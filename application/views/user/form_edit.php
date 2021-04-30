@@ -24,7 +24,7 @@
                     <div class="form-group">
 						<label for="username" class="control-label">Username <span style="color:red"> *</span></label>
 						<div class="input-group">
-							<input type="text" class="form-control" name="username" id="username" data-error="Username harus diisi" placeholder="Username" value="<?php echo $record['username'];?>" required />
+							<input type="text" class="form-control" name="username" id="username" data-error="Username harus diisi" placeholder="Username" value="<?= $this->input->post('username') ?? $record['username']; ?>" required />
 							<span class="input-group-addon">
 								<span class="fa fa-cube"></span>
 							</span>
@@ -88,7 +88,7 @@
 						<div class="help-block with-errors"></div>
                     </div>
                     
-                    <input type="hidden" name="id" value="<?php echo $record['id_user'] ?>">                   
+                    <input type="hidden" name="id_user" value="<?php echo $record['id_user'] ?>">                   
 					<button type="submit" class="btn btn-info" name="submit"> Simpan </button>
 				</form>
 				</div>

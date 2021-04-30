@@ -16,8 +16,7 @@ class Profile extends CI_Controller {
 	function index()
 	{
 		if (isset($_POST['submit'])) {
-			$this->form_validation->set_rules('username', 'Username', 'required|min_length[5]');
-			$this->form_validation->set_message('min_length', '{field} minimal 5 karakter');
+			$this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|callback_username_check');
 			if ($this->input->post('password')){
 				$this->form_validation->set_rules('password', 'Password', 'min_length[5]');
 				$this->form_validation->set_rules('passconf', 'Konfirmasi Password', 'matches[password]');
@@ -31,7 +30,7 @@ class Profile extends CI_Controller {
 				}
 
 			if ($this->form_validation->run() == FALSE) {
-				$id = $this->input->post('id');
+				$id = $this->input->post('id_user');
 				$data['record'] = $this->m_profile->get_one($id)->row_array();
 				$data['fakultas'] = $this->m_fakultas->tampil_data_sort();
 				$this->template->load('template/template','profile/index', $data);
@@ -64,7 +63,7 @@ class Profile extends CI_Controller {
 					// echo $new_name; die;
 					if ($new_name != null){
 
-						$id         	=   $this->input->post('id');
+						$id         	=   $this->input->post('id_user');
 						$data           =   array(
 							'nama_user'  			=> $this->input->post('nama_user'),
 							'username'          	=> $this->input->post('username'),
@@ -82,7 +81,7 @@ class Profile extends CI_Controller {
 						$this->m_profile->edit($data, $id);
 					}
 					else{
-						$id         	=   $this->input->post('id');
+						$id         	=   $this->input->post('id_user');
 						$data           =   array(
 							'nama_user'  			=> $this->input->post('nama_user'),
 							'username'          	=> $this->input->post('username'),
@@ -101,7 +100,7 @@ class Profile extends CI_Controller {
 				}
 				else{
 					if($new_name != null){
-						$id         	=   $this->input->post('id');
+						$id         	=   $this->input->post('id_user');
 						$password 		= $this->input->post('password');
 						$data           =   array(
 							'nama_user'  			=> $this->input->post('nama_user'),
@@ -121,7 +120,7 @@ class Profile extends CI_Controller {
 						$this->m_profile->edit($data, $id);
 					}
 					else{
-						$id         	=   $this->input->post('id');
+						$id         	=   $this->input->post('id_user');
 						$password 		= $this->input->post('password');
 						$data           =   array(
 							'nama_user'  			=> $this->input->post('nama_user'),
@@ -151,4 +150,16 @@ class Profile extends CI_Controller {
 			$this->template->load('template/template','profile/index', $data);
 		}
 	}
+
+	function username_check() {
+        $post = $this->input->post(null, TRUE);
+        $query = $this->db->query("SELECT * FROM user WHERE username ='$post[username]' AND id_user != $post[id_user]");
+        if ($query->num_rows() > 0){
+            $this->form_validation->set_message('username_check', '{field} ini sudah dipakai, silahkan ganti yang lain');
+            return FALSE;
+        }
+        else {
+            return TRUE;
+        }
+    }
 }

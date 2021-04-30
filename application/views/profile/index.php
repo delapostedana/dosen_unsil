@@ -219,7 +219,7 @@
                     </div>
 
                     <div class="box-footer">
-                        <input type="hidden" name="id" value="<?php echo $record['id_user'] ?>"> 
+                        <input type="hidden" name="id_user" value="<?php echo $record['id_user'] ?>"> 
                         <button type="submit" name="submit" class="btn btn-primary disabled">Simpan</button>
                         <button type="reset" class="btn btn-default">Reset</button>
                     </div>

@@ -9,71 +9,27 @@
                 <table id="datatable" class="table table-bordered table-striped table-responsive">
                     <thead class="bg-primary">
                     <tr>
-                    <th>No</th>
-                    <th>NID</th>
-                    <th>Nama Dosen</th>
-                    <th>Fakultas</th>
-                    <th>Mata Kuliah</th>
-                    <th>Action</th>
+                        <th class="text-center">No</th>
+                        <th class="text-center">NIDN</th>
+                        <th class="text-center">Nama Dosen</th>
+                        <th class="text-center">Fakultas</th>
+                        <th class="text-center">Pendidikan Tertinggi</th>
+                        <th class="text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2010140270</td>
-                        <td>Ahmad Santoso</td>
-                        <td>Teknik Informatika</td>
-                        <td>Analisa dan Perancangan</td>
-                        <td><a href="" class="btn btn-success">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2010140271</td>
-                        <td>Ahmad Jaelani</td>
-                        <td>Teknik Informatika</td>
-                        <td>Basis Data</td>
-                        <td><a href="" class="btn btn-success">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>2010140272</td>
-                        <td>Abdul Muttaqin</td>
-                        <td>Sistem Informatika</td>
-                        <td>Pemrograman</td>
-                        <td><a href="" class="btn btn-success">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>2010140273</td>
-                        <td>Abdul Ilyas</td>
-                        <td>Teknik Informatika</td>
-                        <td>Kalkulus</td>
-                        <td><a href="" class="btn btn-success">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>2010140274</td>
-                        <td>Abdul Nurrohman</td>
-                        <td>Teknik Informatika</td>
-                        <td>Testing</td>
-                        <td><a href="" class="btn btn-success">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>2010140275</td>
-                        <td>Adbul Karim</td>
-                        <td>Sistem Informatika</td>
-                        <td>Pengantar Aplikasi</td>
-                        <td><a href="" class="btn btn-success">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>2010140276</td>
-                        <td>Zainudin</td>
-                        <td>Sistem Informatika</td>
-                        <td>Pemrograman Web</td>
-                        <td><a href="" class="btn btn-success">Detail</a></td>
-                    </tr>
+                    <?php 
+                    $no=0;
+                    foreach ($record as $a) { ?>
+                        <tr>
+                            <td class="text-center"><?= ++$no; ?></td>
+                            <td><?= $a->nidn ?></td>
+                            <td><?= $a->nama_user ?></td>
+                            <td><?= $a->program_studi ?></td>
+                            <td><?= $a->pendidikan_tertinggi ?></td>
+                            <td class="text-center"><a href="<?= base_url() ?>laporan/detail/<?= $a->id_dosen ?>" class="btn btn-success">Detail</a></td>
+                        </tr>
+                    <?php } ?>
                 
                 </table>
 				</div>

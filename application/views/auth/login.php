@@ -39,7 +39,7 @@
     <form action="<?= base_url('auth/proses') ?>" role="form" id="myForm" method="post">
     
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="username" id="username"  placeholder="Username"  required>
+        <input type="text" class="form-control" name="username" id="username"  placeholder="Username"  required >
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
 

@@ -26,7 +26,7 @@
 	<!-- Daterange picker -->
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/select2/dist/css/select2.min.css">
-
+	<script src="<?php echo base_url() ?>assets/bower_components/chart.js/Chart.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 	<!-- jQuery UI 1.11.4 -->
@@ -269,7 +269,6 @@
 	<script src="<?php echo base_url() ?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<!-- datepicker -->
 	<script src="<?php echo base_url() ?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-	<!-- Bootstrap WYSIHTML5 -->
 	<!-- Slimscroll -->
 	<script src="<?php echo base_url() ?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<!-- FastClick -->
