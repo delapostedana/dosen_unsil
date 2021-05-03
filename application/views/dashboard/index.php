@@ -10,7 +10,190 @@
 
 <div id="flash" data-flash="<?= $this->session->flashdata('notif') ?>">
 <?php
-  if($record['id_role'] != 3){
+  if($record['id_role'] == 3){?>
+    <div class="row">
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?= $pendidikan ?></h3>
+
+              <p>Riwayat Pendidikan</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-android-refresh"></i>
+            </div>
+            <a href="<?= base_url('pendidikan') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-teal">
+            <div class="inner">
+              <h3><?= $pengabdian ?></h3>
+
+              <p>Pengabdian</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-android-share"></i>
+            </div>
+            <a href="<?= base_url('pengabdian') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-purple">
+            <div class="inner">
+              <h3><?= $penelitian ?></h3>
+
+              <p>Penelitian</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-android-search"></i>
+            </div>
+            <a href="<?= base_url('penelitian') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?= $publikasi ?></h3>
+
+              <p>Daftar Publikasi</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-android-share-alt"></i>
+            </div>
+            <a href="<?=base_url('publikasi')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><?=$buku?></h3>
+
+              <p>Daftar Buku</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-book"></i>
+            </div>
+            <a href="<?=base_url('buku')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3><?=$pengajuan_me?></h3>
+              <p>Total Pengajuan</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-android-send"></i>
+            </div>
+            <a href="<?=base_url('laporan/status_pengajuan')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+      <!-- Main row -->
+      <div class="row">
+        <!-- Left col -->
+        <section class="col-lg-7 connectedSortable">
+       
+        <div style="background-color: white;" id="canvas-holder">
+        <h4 class="text-center"><b>Diagram Pengajuan</b></h4> <br>
+        <h5 class="text-center" > 
+          <span class="bg-warning" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Total : <?= $pengajuan ?></span> 
+          <span class="bg-info" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Proses : <?= $pengajuan_proses ?></span> 
+          <span class="bg-success" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Approved : <?= $pengajuan_approved ?> </span> 
+          <span class="bg-danger" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Reject : <?= $pengajuan_reject ?> </span></h5>
+
+			    <canvas id="chart-area">
+            
+		    </div>
+      
+        </section>
+        <!-- /.Left col -->
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-lg-5 connectedSortable">
+          <!-- Calendar -->
+          <div class="box box-solid bg-green-gradient">
+            <div class="box-header">
+              <i class="fa fa-list"></i>
+              <h3 class="box-title">History Pengajuan</h3>
+              <!-- tools box -->
+              <div class="pull-right box-tools">
+                <!-- button with a dropdown -->
+                <div class="btn-group">
+                </div>
+                <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+              <!-- /. tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <!--The calendar -->
+              <div id="calendar" style="width: 100%"></div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-black">
+              <div class="row">
+                <div class="col-sm-12">
+                <table class="table table-bordered table-hover">
+                  <tr>
+                    <th class="text-center">No</th>
+                    <th class="text-center">No Pengajuan</th>
+                    <th class="text-center">Tanggal Pengajuan</th>
+                    <th class="text-center">Nama Dosen</th>
+                    <th class="text-center">Status Pengajuan</th>
+                  </tr>
+                  <?php 
+                    $no=1;
+                    foreach ($pengajuanku as $a) {
+                  ?>
+                  <tr>
+                    <td><?=$no++?></td>
+                    <td><?=$a['no_pengajuan'];?></td>
+                    <td><?=$a['tgl_pengajuan'];?></td>
+                    <td><?=$a['nama_user'];?></td>
+                    <td class="text-center"><p class="bg-<?php 
+									if($a['status_pengajuan'] == "Proses")
+									{
+										echo "info";
+									} 
+									if($a['status_pengajuan'] == "Reject")
+									{
+										echo "danger";
+									} 
+									if($a['status_pengajuan'] == "Approved")
+									{
+										echo "success";
+									}
+									?>"><?=$a['status_pengajuan'];?></p></td>
+                  </tr>
+                    <?php } ?>
+                </table>
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+          <!-- /.box -->
+
+        </section>
+        <!-- right col -->
+      </div>
+      <!-- /.row (main row) -->
+  <?php } 
+  else{
     $no=1;
    ?>
       <!-- Small boxes (Stat box) -->
@@ -65,7 +248,6 @@
           <div class="small-box bg-red">
             <div class="inner">
               <h3><?=$user?></h3>
-
               <p>Total User</p>
             </div>
             <div class="icon">
@@ -82,9 +264,16 @@
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
        
-        <div class="p-4" style="background-color: white;" id="canvas-holder">
-        <h4 class="text-center">Diagram</h4>
+        <div style="background-color: white;" id="canvas-holder">
+        <h4 class="text-center"><b>Diagram Pengajuan</b></h4> <br>
+        <h5 class="text-center" > 
+          <span class="bg-warning" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Total : <?= $pengajuan ?></span> 
+          <span class="bg-info" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Proses : <?= $pengajuan_proses ?></span> 
+          <span class="bg-success" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Approved : <?= $pengajuan_approved ?> </span> 
+          <span class="bg-danger" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Reject : <?= $pengajuan_reject ?> </span></h5>
+
 			    <canvas id="chart-area">
+            
 		    </div>
       
         </section>
@@ -155,35 +344,23 @@
 
 var doughnutData = [
     {
-      value: 300,
-      color:"#F7464A",
-      highlight: "#FF5A5E",
-      label: "Red"
+      value: <?=$pengajuan_approved?>,
+      color:"#198754",
+      highlight: "#dff0d8",
+      label: "Approved",
     },
     {
-      value: 50,
-      color: "#46BFBD",
-      highlight: "#5AD3D1",
-      label: "Green"
+      value: <?=$pengajuan_reject?>,
+      color: "#dc3545",
+      highlight: "#f2dede",
+      label: "Reject"
     },
     {
-      value: 100,
-      color: "#FDB45C",
-      highlight: "#FFC870",
-      label: "Yellow"
+      value: <?=$pengajuan_proses?>,
+      color: "#0dcaf0",
+      highlight: "#d9edf7",
+      label: "Proses"
     },
-    {
-      value: 40,
-      color: "#949FB1",
-      highlight: "#A8B3C5",
-      label: "Grey"
-    },
-    {
-      value: 120,
-      color: "#4D5360",
-      highlight: "#616774",
-      label: "Dark Grey"
-    }
 
   ];
 
