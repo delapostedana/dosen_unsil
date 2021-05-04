@@ -106,17 +106,14 @@
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
        
-        <div style="background-color: white;" id="canvas-holder">
-        <h4 class="text-center"><b>Diagram Pengajuan</b></h4> <br>
-        <h5 class="text-center" > 
-          <span class="bg-warning" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Total : <?= $pengajuan ?></span> 
-          <span class="bg-info" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Proses : <?= $pengajuan_proses ?></span> 
-          <span class="bg-success" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Approved : <?= $pengajuan_approved ?> </span> 
-          <span class="bg-danger" style="margin-right: 5px; padding: 5px; border-radius: 5px"> Reject : <?= $pengajuan_reject ?> </span></h5>
-
-			    <canvas id="chart-area">
-            
-		    </div>
+        <ul class="list-group">
+          <li class="list-group-item active" aria-current="true"><i class="ion ion-android-checkbox-outline"></i><b>  Panduan Dosen</b></li>
+          <li class="list-group-item">1. Sudah melakukan registrasi dan login</li>
+          <li class="list-group-item">2. Setelah berhasil registrasi dan login, silahkan lengkapi <a href="<?= base_url('profile') ?>">Profile</a> anda</li>
+          <li class="list-group-item">3. Lengkapi <a href="<?= base_url('pendidikan') ?>">Riwayat Pendidikan</a>, <a href="<?= base_url('pengabdian') ?>">Pengabdian</a>, <a href="<?= base_url('penelitian') ?>">Penelitian</a>, <a href="<?= base_url('publikasi') ?>">Daftar Publikasi</a> dan <a href="<?= base_url('buku') ?>">Daftar buku</a></li>
+          <li class="list-group-item">4. Kirim <a href="<?= base_url('biodata') ?>">Biodata</a> anda</li>
+          <li class="list-group-item">5. Tunggu proses pengajuan, jika di approve maka data anda akan di publish</li>
+        </ul>
       
         </section>
         <!-- /.Left col -->

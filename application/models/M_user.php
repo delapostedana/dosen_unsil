@@ -18,6 +18,7 @@ class M_user extends CI_Model
             'username'      => $this->input->post('username'),
             'email'         => $this->input->post('email'),
             'password'      => $password,
+            'foto'          => 'default.png',
             'id_role'       => $this->input->post('role'),
         );
         $this->db->insert('user', $data);
@@ -59,6 +60,7 @@ class M_user extends CI_Model
             'username'      => $this->input->post('username'),
             'password'      => $this->input->post('password'),
             'email'         => $this->input->post('email'),
+            'foto'          => 'default.png',
             'id_role'       => 3
         );
         $this->db->insert('user', $data);
