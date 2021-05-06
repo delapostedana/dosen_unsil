@@ -168,6 +168,10 @@
 							</span>
 						</a>
 					</li>
+					<?php 
+						$role = $this->fungsi->user_login()->id_role;
+						if($role == 1) {
+					?>
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-folder-o"></i> <span>Data Master</span>
@@ -188,6 +192,11 @@
 							</span>
 						</a>
 					</li>
+					<?php } ?>
+					<?php 
+						$role = $this->fungsi->user_login()->id_role;
+						if($role == 1 || $role ==2) {
+					?>	
 					<li>
 						<a href="<?php echo base_url() ?>approval">
 							<i class="fa fa-check"></i> <span>Approval</span>
@@ -195,6 +204,11 @@
 							</span>
 						</a>
 					</li>
+					<?php } ?>
+					<?php 
+						$role = $this->fungsi->user_login()->id_role;
+						if($role==3){
+					?>
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-history"></i> <span>Riwayat Dosen</span>
@@ -217,6 +231,7 @@
 							</span>
 						</a>
 					</li>
+					<?php } ?>
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-file"></i> <span>Laporan</span>
@@ -225,7 +240,12 @@
 							</span>
 						</a>
 						<ul class="treeview-menu">
+						<?php 
+							$role = $this->fungsi->user_login()->id_role;
+						
+						if($role==3){ ?>
 							<li><a href="<?php echo base_url() ?>laporan/status_pengajuan"><i class="fa fa-circle-o"></i>Status Pengajuan</a></li>
+						<?php } ?>
 							<li><a href="<?php echo base_url() ?>laporan/daftar_dosen"><i class="fa fa-circle-o"></i>Daftar Dosen</a></li>
 						</ul>
 					</li>

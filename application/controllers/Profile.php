@@ -101,7 +101,7 @@ class Profile extends CI_Controller {
 				else{
 					if($new_name != null){
 						$id         	=   $this->input->post('id_user');
-						$password 		= $this->input->post('password');
+						$password 		= md5($this->input->post('password'));
 						$data           =   array(
 							'nama_user'  			=> $this->input->post('nama_user'),
 							'username'          	=> $this->input->post('username'),
@@ -121,7 +121,7 @@ class Profile extends CI_Controller {
 					}
 					else{
 						$id         	=   $this->input->post('id_user');
-						$password 		= $this->input->post('password');
+						$password 		= md5($this->input->post('password'));
 						$data           =   array(
 							'nama_user'  			=> $this->input->post('nama_user'),
 							'username'          	=> $this->input->post('username'),

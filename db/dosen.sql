@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2021 at 06:26 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.14
+-- Waktu pembuatan: 06 Bulan Mei 2021 pada 17.50
+-- Versi server: 10.4.10-MariaDB
+-- Versi PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
@@ -37,7 +38,7 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `buku`
+-- Dumping data untuk tabel `buku`
 --
 
 INSERT INTO `buku` (`id_buku`, `judul_buku`, `isbn`, `penerbit`, `tahun_terbit`, `id_dosen`) VALUES
@@ -47,7 +48,7 @@ INSERT INTO `buku` (`id_buku`, `judul_buku`, `isbn`, `penerbit`, `tahun_terbit`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fakultas`
+-- Struktur dari tabel `fakultas`
 --
 
 CREATE TABLE `fakultas` (
@@ -56,7 +57,7 @@ CREATE TABLE `fakultas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `fakultas`
+-- Dumping data untuk tabel `fakultas`
 --
 
 INSERT INTO `fakultas` (`id_fakul`, `nama_fakul`) VALUES
@@ -68,7 +69,7 @@ INSERT INTO `fakultas` (`id_fakul`, `nama_fakul`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matkul`
+-- Struktur dari tabel `matkul`
 --
 
 CREATE TABLE `matkul` (
@@ -77,7 +78,7 @@ CREATE TABLE `matkul` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `matkul`
+-- Dumping data untuk tabel `matkul`
 --
 
 INSERT INTO `matkul` (`id_matkul`, `nama_matkul`) VALUES
@@ -90,7 +91,7 @@ INSERT INTO `matkul` (`id_matkul`, `nama_matkul`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penelitian`
+-- Struktur dari tabel `penelitian`
 --
 
 CREATE TABLE `penelitian` (
@@ -103,7 +104,7 @@ CREATE TABLE `penelitian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `penelitian`
+-- Dumping data untuk tabel `penelitian`
 --
 
 INSERT INTO `penelitian` (`id_penelitian`, `judul`, `bidang_ilmu`, `lembaga`, `tahun`, `id_dosen`) VALUES
@@ -113,7 +114,7 @@ INSERT INTO `penelitian` (`id_penelitian`, `judul`, `bidang_ilmu`, `lembaga`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengabdian`
+-- Struktur dari tabel `pengabdian`
 --
 
 CREATE TABLE `pengabdian` (
@@ -126,7 +127,7 @@ CREATE TABLE `pengabdian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengabdian`
+-- Dumping data untuk tabel `pengabdian`
 --
 
 INSERT INTO `pengabdian` (`id_pengab`, `smester`, `id_matkul`, `kelas`, `perguruan_tinggi`, `id_dosen`) VALUES
@@ -137,7 +138,7 @@ INSERT INTO `pengabdian` (`id_pengab`, `smester`, `id_matkul`, `kelas`, `perguru
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengajuan`
+-- Struktur dari tabel `pengajuan`
 --
 
 CREATE TABLE `pengajuan` (
@@ -152,19 +153,20 @@ CREATE TABLE `pengajuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengajuan`
+-- Dumping data untuk tabel `pengajuan`
 --
 
 INSERT INTO `pengajuan` (`id`, `no_pengajuan`, `id_dosen`, `id_user`, `status_pengajuan`, `alasan`, `tgl_pengajuan`, `tgl_respon`) VALUES
 (7, 'PBD0001', 1, 2, 'Proses', 'test\r\n', '2021-04-21 09:03:48', '2021-04-21 02:40:03'),
 (8, 'PBD0002', 1, 1, 'Approved', '', '2021-04-21 09:22:21', '2021-04-23 10:20:50'),
-(10, 'PBD0003', 4, 1, 'Proses', 'Tidak ada riwayatnya', '2021-04-23 09:57:31', '2021-04-23 09:59:35'),
-(11, 'PBD0004', 4, 1, 'Reject', 'Double data', '2021-04-23 09:58:53', '2021-04-23 09:59:51');
+(10, 'PBD0003', 4, 13, 'Approved', '', '2021-04-23 09:57:31', '2021-05-06 08:45:53'),
+(11, 'PBD0004', 4, 1, 'Reject', 'Double data', '2021-04-23 09:58:53', '2021-04-23 09:59:51'),
+(12, 'PBD0005', 4, NULL, 'Proses', NULL, '2021-05-06 10:10:37', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publikasi`
+-- Struktur dari tabel `publikasi`
 --
 
 CREATE TABLE `publikasi` (
@@ -178,7 +180,7 @@ CREATE TABLE `publikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `publikasi`
+-- Dumping data untuk tabel `publikasi`
 --
 
 INSERT INTO `publikasi` (`id_publikasi`, `judul_pub`, `jurnal`, `no_artikel`, `volume`, `tahun`, `id_dosen`) VALUES
@@ -188,7 +190,7 @@ INSERT INTO `publikasi` (`id_publikasi`, `judul_pub`, `jurnal`, `no_artikel`, `v
 -- --------------------------------------------------------
 
 --
--- Table structure for table `riwayat_pendidikan`
+-- Struktur dari tabel `riwayat_pendidikan`
 --
 
 CREATE TABLE `riwayat_pendidikan` (
@@ -201,7 +203,7 @@ CREATE TABLE `riwayat_pendidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `riwayat_pendidikan`
+-- Dumping data untuk tabel `riwayat_pendidikan`
 --
 
 INSERT INTO `riwayat_pendidikan` (`id_riw_pendidikan`, `perguruan_tinggi`, `gelar_akademik`, `tahun_ijazah`, `jenjang`, `id_dosen`) VALUES
@@ -213,7 +215,7 @@ INSERT INTO `riwayat_pendidikan` (`id_riw_pendidikan`, `perguruan_tinggi`, `gela
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tokens`
+-- Struktur dari tabel `tokens`
 --
 
 CREATE TABLE `tokens` (
@@ -224,7 +226,7 @@ CREATE TABLE `tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tokens`
+-- Dumping data untuk tabel `tokens`
 --
 
 INSERT INTO `tokens` (`id`, `token`, `id_user`, `created`) VALUES
@@ -246,7 +248,7 @@ INSERT INTO `tokens` (`id`, `token`, `id_user`, `created`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -269,23 +271,24 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `username`, `password`, `id_role`, `foto`, `nip`, `nidn`, `id_scopus`, `program_studi`, `jk`, `jabatan`, `pendidikan_tertinggi`, `status_ikatan_kerja`, `status_aktivitas`, `email`) VALUES
-(1, 'Dana dela poste', 'admin', '12345', 1, '1619163900-adm.png', '1', '2', '0', 'Teknik Informatika', 'Laki-laki', 'Sekretaris', 'D2', 'Dosen Tetap', 'Aktif', '12345@g'),
-(2, 'Bapak Dosen Saya', 'dosen', 'dosen', 3, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
-(4, 'Jajang', 'jajang', '12345', 3, '1619668351-21192554611598811058-128.png', '123456789', '123456789', '123456789', 'Sistem Informatika', 'Laki-laki', 'Sekretaris', 'S2', 'Dosen Tetap', 'Aktif', 'abc@gmail.com'),
-(7, 'Farid Yulianto', 'farids', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
-(9, 'Pipit Riyani', 'pipit', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
-(11, 'Joko Wi', 'jokowi', '12345', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'nirwanasecondary@yahoo.com'),
-(12, 'Bapak Dosen Yang Terhormat', 'ythdosen', '12345', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dosen@gmail.com');
+(1, 'Dana dela poste', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 1, '1619163900-adm.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '12345@g'),
+(2, 'Bapak Dosen Saya', 'dosen', '827ccb0eea8a706c4c34a16891f84e7b', 3, 'default.png', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
+(4, 'Jajang', 'jajang', '827ccb0eea8a706c4c34a16891f84e7b', 3, '1619668351-21192554611598811058-128.png', '123456789', '123456789', '123456789', 'Sistem Informatika', 'Laki-laki', 'Sekretaris', 'S2', 'Dosen Tetap', 'Aktif', 'abc@gmail.com'),
+(7, 'Farid Yulianto', 'farids', '827ccb0eea8a706c4c34a16891f84e7b', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
+(9, 'Pipit Riyani', 'pipit', '827ccb0eea8a706c4c34a16891f84e7b', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'abc@gmail.com'),
+(11, 'Joko Widodo', 'jokowi', '827ccb0eea8a706c4c34a16891f84e7b', 1, '1620314560-63b44da0158231bdd36aa21f8f64a0d1.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'nirwanasecondary@yahoo.com'),
+(12, 'Bapak Dosen Yang Terhormat', 'ythdosen', '827ccb0eea8a706c4c34a16891f84e7b', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dosen@gmail.com'),
+(13, 'Approver', 'approver', '827ccb0eea8a706c4c34a16891f84e7b', 2, 'default.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'approver@yahoo.com');
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `v_matkul_pengabdian`
--- (See below for the actual view)
+-- Stand-in struktur untuk tampilan `v_matkul_pengabdian`
+-- (Lihat di bawah untuk tampilan aktual)
 --
 CREATE TABLE `v_matkul_pengabdian` (
 `id_matkul` int(11)
@@ -300,8 +303,8 @@ CREATE TABLE `v_matkul_pengabdian` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `v_pengajuan`
--- (See below for the actual view)
+-- Stand-in struktur untuk tampilan `v_pengajuan`
+-- (Lihat di bawah untuk tampilan aktual)
 --
 CREATE TABLE `v_pengajuan` (
 `id` int(11)
@@ -331,156 +334,156 @@ CREATE TABLE `v_pengajuan` (
 -- --------------------------------------------------------
 
 --
--- Structure for view `v_matkul_pengabdian`
+-- Struktur untuk view `v_matkul_pengabdian`
 --
 DROP TABLE IF EXISTS `v_matkul_pengabdian`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_matkul_pengabdian`  AS SELECT `matkul`.`id_matkul` AS `id_matkul`, `matkul`.`nama_matkul` AS `nama_matkul`, `pengabdian`.`id_pengab` AS `id_pengab`, `pengabdian`.`smester` AS `smester`, `pengabdian`.`kelas` AS `kelas`, `pengabdian`.`perguruan_tinggi` AS `perguruan_tinggi`, `pengabdian`.`id_dosen` AS `id_dosen` FROM (`matkul` join `pengabdian` on(`matkul`.`id_matkul` = `pengabdian`.`id_matkul`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_matkul_pengabdian`  AS  select `matkul`.`id_matkul` AS `id_matkul`,`matkul`.`nama_matkul` AS `nama_matkul`,`pengabdian`.`id_pengab` AS `id_pengab`,`pengabdian`.`smester` AS `smester`,`pengabdian`.`kelas` AS `kelas`,`pengabdian`.`perguruan_tinggi` AS `perguruan_tinggi`,`pengabdian`.`id_dosen` AS `id_dosen` from (`matkul` join `pengabdian` on(`matkul`.`id_matkul` = `pengabdian`.`id_matkul`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `v_pengajuan`
+-- Struktur untuk view `v_pengajuan`
 --
 DROP TABLE IF EXISTS `v_pengajuan`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_pengajuan`  AS SELECT `pengajuan`.`id` AS `id`, `pengajuan`.`no_pengajuan` AS `no_pengajuan`, `pengajuan`.`id_dosen` AS `id_dosen`, `pengajuan`.`id_user` AS `id_user`, `pengajuan`.`status_pengajuan` AS `status_pengajuan`, `pengajuan`.`alasan` AS `alasan`, `pengajuan`.`tgl_pengajuan` AS `tgl_pengajuan`, `pengajuan`.`tgl_respon` AS `tgl_respon`, `user`.`nama_user` AS `nama_user`, `user`.`username` AS `username`, `user`.`password` AS `password`, `user`.`id_role` AS `id_role`, `user`.`foto` AS `foto`, `user`.`nip` AS `nip`, `user`.`nidn` AS `nidn`, `user`.`id_scopus` AS `id_scopus`, `user`.`program_studi` AS `program_studi`, `user`.`jk` AS `jk`, `user`.`jabatan` AS `jabatan`, `user`.`pendidikan_tertinggi` AS `pendidikan_tertinggi`, `user`.`status_ikatan_kerja` AS `status_ikatan_kerja`, `user`.`status_aktivitas` AS `status_aktivitas` FROM (`pengajuan` join `user` on(`pengajuan`.`id_dosen` = `user`.`id_user`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_pengajuan`  AS  select `pengajuan`.`id` AS `id`,`pengajuan`.`no_pengajuan` AS `no_pengajuan`,`pengajuan`.`id_dosen` AS `id_dosen`,`pengajuan`.`id_user` AS `id_user`,`pengajuan`.`status_pengajuan` AS `status_pengajuan`,`pengajuan`.`alasan` AS `alasan`,`pengajuan`.`tgl_pengajuan` AS `tgl_pengajuan`,`pengajuan`.`tgl_respon` AS `tgl_respon`,`user`.`nama_user` AS `nama_user`,`user`.`username` AS `username`,`user`.`password` AS `password`,`user`.`id_role` AS `id_role`,`user`.`foto` AS `foto`,`user`.`nip` AS `nip`,`user`.`nidn` AS `nidn`,`user`.`id_scopus` AS `id_scopus`,`user`.`program_studi` AS `program_studi`,`user`.`jk` AS `jk`,`user`.`jabatan` AS `jabatan`,`user`.`pendidikan_tertinggi` AS `pendidikan_tertinggi`,`user`.`status_ikatan_kerja` AS `status_ikatan_kerja`,`user`.`status_aktivitas` AS `status_aktivitas` from (`pengajuan` join `user` on(`pengajuan`.`id_dosen` = `user`.`id_user`)) ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id_buku`);
 
 --
--- Indexes for table `fakultas`
+-- Indeks untuk tabel `fakultas`
 --
 ALTER TABLE `fakultas`
   ADD PRIMARY KEY (`id_fakul`);
 
 --
--- Indexes for table `matkul`
+-- Indeks untuk tabel `matkul`
 --
 ALTER TABLE `matkul`
   ADD PRIMARY KEY (`id_matkul`);
 
 --
--- Indexes for table `penelitian`
+-- Indeks untuk tabel `penelitian`
 --
 ALTER TABLE `penelitian`
   ADD PRIMARY KEY (`id_penelitian`);
 
 --
--- Indexes for table `pengabdian`
+-- Indeks untuk tabel `pengabdian`
 --
 ALTER TABLE `pengabdian`
   ADD PRIMARY KEY (`id_pengab`),
   ADD KEY `id_matkul` (`id_matkul`);
 
 --
--- Indexes for table `pengajuan`
+-- Indeks untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `publikasi`
+-- Indeks untuk tabel `publikasi`
 --
 ALTER TABLE `publikasi`
   ADD PRIMARY KEY (`id_publikasi`);
 
 --
--- Indexes for table `riwayat_pendidikan`
+-- Indeks untuk tabel `riwayat_pendidikan`
 --
 ALTER TABLE `riwayat_pendidikan`
   ADD PRIMARY KEY (`id_riw_pendidikan`);
 
 --
--- Indexes for table `tokens`
+-- Indeks untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `buku`
+-- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
   MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `fakultas`
+-- AUTO_INCREMENT untuk tabel `fakultas`
 --
 ALTER TABLE `fakultas`
   MODIFY `id_fakul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `matkul`
+-- AUTO_INCREMENT untuk tabel `matkul`
 --
 ALTER TABLE `matkul`
   MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `penelitian`
+-- AUTO_INCREMENT untuk tabel `penelitian`
 --
 ALTER TABLE `penelitian`
   MODIFY `id_penelitian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pengabdian`
+-- AUTO_INCREMENT untuk tabel `pengabdian`
 --
 ALTER TABLE `pengabdian`
   MODIFY `id_pengab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pengajuan`
+-- AUTO_INCREMENT untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `publikasi`
+-- AUTO_INCREMENT untuk tabel `publikasi`
 --
 ALTER TABLE `publikasi`
   MODIFY `id_publikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `riwayat_pendidikan`
+-- AUTO_INCREMENT untuk tabel `riwayat_pendidikan`
 --
 ALTER TABLE `riwayat_pendidikan`
   MODIFY `id_riw_pendidikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tokens`
+-- AUTO_INCREMENT untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `pengabdian`
+-- Ketidakleluasaan untuk tabel `pengabdian`
 --
 ALTER TABLE `pengabdian`
   ADD CONSTRAINT `pengabdian_ibfk_1` FOREIGN KEY (`id_matkul`) REFERENCES `matkul` (`id_matkul`);

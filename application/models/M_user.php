@@ -17,7 +17,7 @@ class M_user extends CI_Model
             'nama_user'     => $this->input->post('nama_user'),
             'username'      => $this->input->post('username'),
             'email'         => $this->input->post('email'),
-            'password'      => $password,
+            'password'      => md5($password),
             'foto'          => 'default.png',
             'id_role'       => $this->input->post('role'),
         );
@@ -47,18 +47,19 @@ class M_user extends CI_Model
         $this->db->select('*');
         $this->db->from('user');
         $this->db->where('username', $post['username']);
-        $this->db->where('password', $post['password']);
+        $this->db->where('password', md5($post['password']));
         $query = $this->db->get();
         return $query;
     }
 
     function regist()
     {
+        $password = md5($this->input->post('password'));
         $data=array
         (
             'nama_user'     => $this->input->post('nama'),
             'username'      => $this->input->post('username'),
-            'password'      => $this->input->post('password'),
+            'password'      => $password,
             'email'         => $this->input->post('email'),
             'foto'          => 'default.png',
             'id_role'       => 3
@@ -92,7 +93,7 @@ class M_user extends CI_Model
     public function updatePassword($password, $id)
     {
         $this->db->where('id_user', $id);
-        $this->db->update('user', array('password' => $password));
+        $this->db->update('user', array('password' => md5($password)));
         return true;
     }
 

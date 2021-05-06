@@ -202,7 +202,7 @@ class Auth extends CI_Controller {
 				$this->load->view('auth/reset_password');
 				}
 			else {
-				$password 	= $this->input->post('password');
+				$password 	= md5($this->input->post('password'));
 				$id 		= $this->session->userdata('reset_username')['id_user'];
 
 				$this->m_user->updatePassword($password, $id);

@@ -192,6 +192,9 @@
   <?php } 
   else{
     $no=1;
+    $fakultas_adm     = base_url('fakultas');
+    $matkul_adm       = base_url('matkul');
+    $user_adm         = base_url('user');
    ?>
       <!-- Small boxes (Stat box) -->
       <div class="row">
@@ -221,7 +224,7 @@
             <div class="icon">
               <i class="ion ion-ios-briefcase"></i>
             </div>
-            <a href="<?=base_url('fakultas')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php if ($this->fungsi->user_login()->id_role==1){echo $fakultas_adm;}else{echo '#';}?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -236,7 +239,7 @@
             <div class="icon">
               <i class="ion ion-ios-book"></i>
             </div>
-            <a href="<?=base_url('matkul')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php if ($this->fungsi->user_login()->id_role==1){echo $matkul_adm;}else{echo '#';}?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -250,7 +253,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="<?=base_url('user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php if ($this->fungsi->user_login()->id_role==1){echo $user_adm;}else{echo '#';}?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
