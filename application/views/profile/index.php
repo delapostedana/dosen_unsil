@@ -144,15 +144,39 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="fakultas" class="control-label">Fakultas <span style="color:red"> *</span></label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="fakultas" data-error="Fakultas harus diisi" required>
+                                            <option value="">- PILIH -</option>
+                                            <?php foreach ($fakultas as $a) { ?>
+                                                <option value="<?= $a->nama_fakul ?>" <?php if ($record['fakultas'] == $a->nama_fakul) {
+                                                                                            echo 'selected';
+                                                                                        } ?>><?= $a->nama_fakul ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-list"></span>
+                                        </span>
+                                    </div>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+								<div class="form-group">
                                     <label for="program_studi" class="control-label">Program Studi <span style="color:red"> *</span></label>
                                     <div class="input-group">
                                         <select class="form-control" name="program_studi" data-error="Program studi harus diisi" required>
                                             <option value="">- PILIH -</option>
-                                            <?php foreach ($fakultas as $a) { ?>
-                                                <option value="<?= $a->nama_fakul ?>" <?php if ($record['program_studi'] == $a->nama_fakul) {
-                                                                                            echo 'selected';
-                                                                                        } ?>><?= $a->nama_fakul ?></option>
-                                            <?php } ?>
+                                            <?php
+											foreach ($prodi as $a) { ?>
+                                                <option value="<?= $a->nama_prodi ?>" 
+												<?php 
+												if ($record['program_studi'] == $a->nama_prodi) {
+														echo 'selected';
+													} 
+													?>>
+													<?= $a->nama_prodi ?>
+													</option>
+                                            	<?php } ?>
                                         </select>
                                         <span class="input-group-addon">
                                             <span class="fa fa-list"></span>

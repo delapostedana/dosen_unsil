@@ -7,6 +7,7 @@ class Profile extends CI_Controller {
         parent::__construct();
         check_not_login();
 		$this->load->model('m_profile');
+		$this->load->model('m_prodi');
 		$this->load->model('m_fakultas');
 		$this->load->model('m_user');
 		$this->load->helper(array('form', 'url'));
@@ -33,6 +34,7 @@ class Profile extends CI_Controller {
 				$id = $this->input->post('id_user');
 				$data['record'] = $this->m_profile->get_one($id)->row_array();
 				$data['fakultas'] = $this->m_fakultas->tampil_data_sort();
+				$data['prodi'] = $this->m_prodi->tampil_data();
 				$this->template->load('template/template','profile/index', $data);
 				// redirect('profile');
 			}
@@ -70,6 +72,7 @@ class Profile extends CI_Controller {
 							'nip'          			=> $this->input->post('nip'),
 							'nidn'          		=> $this->input->post('nidn'),
 							'id_scopus'		        => $this->input->post('id_scopus'),
+							'fakultas'         		=> $this->input->post('fakultas'),
 							'program_studi'         => $this->input->post('program_studi'),
 							'jk'          			=> $this->input->post('jk'),
 							'jabatan'          		=> $this->input->post('jabatan'),
@@ -88,6 +91,7 @@ class Profile extends CI_Controller {
 							'nip'          			=> $this->input->post('nip'),
 							'nidn'          		=> $this->input->post('nidn'),
 							'id_scopus'		        => $this->input->post('id_scopus'),
+							'fakultas'         		=> $this->input->post('fakultas'),
 							'program_studi'         => $this->input->post('program_studi'),
 							'jk'          			=> $this->input->post('jk'),
 							'jabatan'          		=> $this->input->post('jabatan'),
@@ -109,6 +113,7 @@ class Profile extends CI_Controller {
 							'nip'          			=> $this->input->post('nip'),
 							'nidn'          		=> $this->input->post('nidn'),
 							'id_scopus'		        => $this->input->post('id_scopus'),
+							'fakultas'         		=> $this->input->post('fakultas'),
 							'program_studi'         => $this->input->post('program_studi'),
 							'jk'          			=> $this->input->post('jk'),
 							'jabatan'          		=> $this->input->post('jabatan'),
@@ -129,6 +134,7 @@ class Profile extends CI_Controller {
 							'nip'          			=> $this->input->post('nip'),
 							'nidn'          		=> $this->input->post('nidn'),
 							'id_scopus'		        => $this->input->post('id_scopus'),
+							'fakultas'         		=> $this->input->post('fakultas'),
 							'program_studi'         => $this->input->post('program_studi'),
 							'jk'          			=> $this->input->post('jk'),
 							'jabatan'          		=> $this->input->post('jabatan'),
@@ -147,6 +153,7 @@ class Profile extends CI_Controller {
 			$id = $this->fungsi->user_login()->id_user;
 			$data['fakultas'] = $this->m_fakultas->tampil_data_sort();
 			$data['record'] = $this->m_user->get_one($id)->row_array();
+			$data['prodi'] = $this->m_prodi->tampil_data_sort();
 			$this->template->load('template/template','profile/index', $data);
 		}
 	}

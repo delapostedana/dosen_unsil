@@ -47,7 +47,7 @@ class M_pengajuan extends CI_Model
 		$this->db->from('pengajuan');
 		$this->db->join('user', 'pengajuan.id_dosen = user.id_user');
 		$this->db->where('status_pengajuan','Approved');
-		$this->db->group_by('id_user');
+		$this->db->group_by('id_dosen');
 		$this->db->order_by('tgl_respon', 'DESC');
 
             return $this->db->get();

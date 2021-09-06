@@ -8,6 +8,13 @@ class M_prodi extends CI_Model
 		return 
 		$this->db->get('prodi')->result(); 
     }
+
+	function tampil_data_sort()
+	{
+		$this->db->order_by('nama_prodi', 'ASC');
+        $query = $this->db->get('prodi');
+        return $query->result();
+    }
     
     function post()
     {

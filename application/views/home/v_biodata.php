@@ -30,6 +30,11 @@
 	<!-- Google Font -->
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<Style>
+	.satu{
+		width: 200px;
+	}
+</Style>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 
@@ -87,51 +92,61 @@
 									
 									</div>
 									<div class="col-lg-8">
-										<h3 class="profile-username text-center text-bold text-uppercase"><?= $user['nama_user']?></h3>
-										<table class="table table-striped">
+										<!-- <h3 class="profile-username text-center text-bold text-uppercase"><?= $user['nama_user']?></h3> -->
+										<table class="table no-border">
 											<tbody>
 												<tr>
-													<td class="text-right satu">NIP Dosen</td>
+													<td class="satu">Nama Dosen</td>
+													<td class="text-center dua"> : </td>
+													<td class="tiga"> <b><?= strtoupper($user['nama_user']) ?></b></td>
+												</tr>
+												<tr>
+													<td class="satu">NIP Dosen</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['nip']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">NIDN</td>
+													<td class=" satu">NIDN</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['nidn']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">ID Scopus</td>
+													<td class=" satu">ID Scopus</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['id_scopus']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">Program Studi</td>
+													<td class=" satu">Fakultas</td>
+													<td class="text-center dua"> : </td>
+													<td class="tiga"><?= $user['fakultas']?></td>
+												</tr>
+												<tr>
+													<td class=" satu">Program Studi</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['program_studi']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">Jenis Kelamin</td>
+													<td class=" satu">Jenis Kelamin</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['jk']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">Jabatan Fungsional</td>
+													<td class=" satu">Jabatan Fungsional</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['jabatan']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">Pendidikan Tertinggi</td>
+													<td class=" satu">Pendidikan Tertinggi</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['pendidikan_tertinggi']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">Status Ikatan Kerja</td>
+													<td class=" satu">Status Ikatan Kerja</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['status_ikatan_kerja']?></td>
 												</tr>
 												<tr>
-													<td class="text-right satu">Status Aktivitas</td>
+													<td class=" satu">Status Aktivitas</td>
 													<td class="text-center dua"> : </td>
 													<td class="tiga"><?= $user['status_aktivitas']?></td>
 												</tr>

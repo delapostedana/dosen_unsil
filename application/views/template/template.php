@@ -183,6 +183,7 @@
 							<li><a href="<?php echo base_url() ?>matkul"><i class="fa fa-circle-o"></i>Mata Kuliah</a></li>
 							<!-- <li><a href="<?php echo base_url() ?>index.php/ukuran"><i class="fa fa-circle-o"></i>Varian</a></li> -->
 							<li><a href="<?php echo base_url() ?>fakultas"><i class="fa fa-circle-o"></i>Fakultas</a></li>
+							<li><a href="<?php echo base_url() ?>prodi"><i class="fa fa-circle-o"></i>Program Studi</a></li>
 						</ul>
 					</li>
 					<li>
