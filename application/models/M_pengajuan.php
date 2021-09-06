@@ -35,8 +35,22 @@ class M_pengajuan extends CI_Model
 
     public function get_active() {
         {
-            $this->db->order_by('nama_user', 'ASC');
-            return $this->db->get_where('v_pengajuan',array('status_pengajuan'=>'Approved'));
+			$this->db->select('
+			pengajuan.id_user,
+			pengajuan.id_dosen, 
+			pengajuan.id AS id_pengajuan,
+			nidn,
+			nama_user,
+			program_studi,
+			pendidikan_tertinggi'
+		);
+		$this->db->from('pengajuan');
+		$this->db->join('user', 'pengajuan.id_dosen = user.id_user');
+		$this->db->where('status_pengajuan','Approved');
+		$this->db->group_by('id_user');
+		$this->db->order_by('tgl_respon', 'DESC');
+
+            return $this->db->get();
         }
     }
 
